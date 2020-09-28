@@ -1,0 +1,5 @@
+﻿<%@ ServiceHost 
+    Language="C#" 
+    Debug="true" 
+    Service="VirtualMusicStore.ServiceInterface.IMusicAlbumService, VirtualMusicStore.ServiceInterface" 
+    Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf" %>
