@@ -4,6 +4,7 @@
     using NUnit.Framework;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using VirtualMusicStore.DataEntities.Interface;
 
     [TestFixture]
@@ -85,10 +86,27 @@
         }
 
         [Test]
+        public async Task GetAllMusicAlbumAsyncTest()
+        {
+            Service.MusicAlbumService testService = new Service.MusicAlbumService(this.AlbumsRepository);
+            var result = await testService.GetAllMusicAlbumByAsync();
+            Assert.That(result.Count, Is.EqualTo(2));
+        }
+
+
+        [Test]
         public void GetMusicAlbumTest()
         {
             Service.MusicAlbumService testService = new Service.MusicAlbumService(this.AlbumsRepository);
             var result = testService.GetMusicAlbum(1);
+            Assert.That(result.Id, Is.EqualTo(1));
+        }
+
+        [Test]
+        public async Task GetMusicAlbumAsyncTest()
+        {
+            Service.MusicAlbumService testService = new Service.MusicAlbumService(this.AlbumsRepository);
+            var result = await testService.GetMusicAlbumByAsync(1);
             Assert.That(result.Id, Is.EqualTo(1));
         }
 
@@ -108,6 +126,28 @@
             Service.MusicAlbumService testService = new Service.MusicAlbumService(this.AlbumsRepository);
 
             var result = testService.AddMusicAlbum(albumModel);
+            Assert.That(result, Is.EqualTo(true));
+
+            var count = this.AlbumsRepository.GetAllMusicAlbum().Count();
+            Assert.That(count, Is.EqualTo(3));
+        }
+
+        [Test]
+        public async Task AddMusicAlbumAsyncTestAsync()
+        {
+            var albumModel = new DataContract.Album
+            {
+                Id = 3,
+                AlbumName = "Super Spears",
+                Artist = "Mike",
+                Label = "Virgin",
+                LabelType = DataContract.LabelType.CD,
+                Stock = 10
+            };
+
+            Service.MusicAlbumService testService = new Service.MusicAlbumService(this.AlbumsRepository);
+
+            var result = await testService.AddMusicAlbumByAsync(albumModel);
             Assert.That(result, Is.EqualTo(true));
 
             var count = this.AlbumsRepository.GetAllMusicAlbum().Count();
@@ -136,6 +176,27 @@
         }
 
         [Test]
+        public async Task UpdateMusicAlbumAsyncTest()
+        {
+            var albumModel = new DataContract.Album
+            {
+                Id = 1,
+                Artist = "Mike",
+                Label = "Virgin",
+                LabelType = DataContract.LabelType.CD,
+                Stock = 10
+            };
+            Service.MusicAlbumService testService = new Service.MusicAlbumService(this.AlbumsRepository);
+            var result = await testService.UpdateMusicAlbumByAsync(albumModel);
+
+            var updatedalbumModel = await testService.GetMusicAlbumByAsync(1);
+
+            Assert.That(result, Is.EqualTo(true));
+
+            Assert.That(updatedalbumModel.AlbumName, Is.EqualTo(albumModel.AlbumName));
+        }
+
+        [Test]
         public void DeleteMusicAlbumTest()
         {
             Service.MusicAlbumService testService = new Service.MusicAlbumService(AlbumsRepository);
@@ -146,5 +207,15 @@
             Assert.That(albumModels.Count, Is.EqualTo(1));
         }
 
+        [Test]
+        public async Task DeleteMusicAlbumAsyncTest()
+        {
+            Service.MusicAlbumService testService = new Service.MusicAlbumService(AlbumsRepository);
+            bool result = await testService.DeleteMusicAlbumByAsync(1);
+            Assert.That(result, Is.EqualTo(true));
+
+            var albumModels = testService.GetAllMusicAlbumByAsync();
+            Assert.That(albumModels.Result.Count, Is.EqualTo(1));
+        }
     }
 }
