@@ -87,14 +87,16 @@
 
                 //Create a binding of the type exposed by service 
                 BasicHttpBinding binding = new BasicHttpBinding();
-
+                
+                
+                NetHttpBinding binaryHttpBinding = new NetHttpBinding();
                 //Create EndPoint address
                 var serviceEndpoint = ConfigurationManager.AppSettings["MusicService"];
 
                 EndpointAddress endpointAddress = new EndpointAddress(serviceEndpoint);
 
                 //Pass Binding and EndPoint address to ChannelFactory
-                channelFactory = new ChannelFactory<IMusicAlbumService>(binding, endpointAddress);
+                channelFactory = new ChannelFactory<IMusicAlbumService>(binaryHttpBinding, endpointAddress);
 
                 //Now create the new channel as below
                 return channelFactory.CreateChannel();

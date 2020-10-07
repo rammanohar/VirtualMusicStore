@@ -7,13 +7,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.Service",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.DataEntities", "VirtualMusicStore.DataEntities\VirtualMusicStore.DataEntities.csproj", "{8A6054BC-A244-47D0-A16C-069654A22AB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.ServiceInterface", "VirtualMusicStore.ServiceInterface\VirtualMusicStore.ServiceInterface.csproj", "{C30BCD83-490D-4A29-A4EC-453D6F6FD564}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.ServiceInterface", "VirtualMusicStore.ServiceInterface\VirtualMusicStore.ServiceInterface.csproj", "{C83C3999-F44C-4E81-BE08-2DC964F5F758}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.DataContract", "VirtualMusicStore.DataContract\VirtualMusicStore.DataContract.csproj", "{74A2B1E8-3B5E-495D-AEEE-8A790129BABE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.WebApp", "VirtualMusicStore.WebApp\VirtualMusicStore.WebApp.csproj", "{E06CC5D5-5563-495D-AE62-1B00572CB874}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.Tests", "VirtualMusicStore.Tests\VirtualMusicStore.Tests.csproj", "{345C5464-9275-477D-A6B6-739F9AD3B0B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.DataEntitiyInterface", "VirtualMusicStore.DataEntitiyInterface\VirtualMusicStore.DataEntitiyInterface.csproj", "{BD703ADD-B077-4E31-AB49-B8227D3229BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMusicStore.DataEntitiyRepository", "VirtualMusicStore.DataEntitiyRepository\VirtualMusicStore.DataEntitiyRepository.csproj", "{3C76B13C-BAD7-45C0-9075-D145BA406286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +33,10 @@ Global
 		{8A6054BC-A244-47D0-A16C-069654A22AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A6054BC-A244-47D0-A16C-069654A22AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A6054BC-A244-47D0-A16C-069654A22AB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C30BCD83-490D-4A29-A4EC-453D6F6FD564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C30BCD83-490D-4A29-A4EC-453D6F6FD564}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C30BCD83-490D-4A29-A4EC-453D6F6FD564}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C30BCD83-490D-4A29-A4EC-453D6F6FD564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83C3999-F44C-4E81-BE08-2DC964F5F758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83C3999-F44C-4E81-BE08-2DC964F5F758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83C3999-F44C-4E81-BE08-2DC964F5F758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83C3999-F44C-4E81-BE08-2DC964F5F758}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74A2B1E8-3B5E-495D-AEEE-8A790129BABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74A2B1E8-3B5E-495D-AEEE-8A790129BABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74A2B1E8-3B5E-495D-AEEE-8A790129BABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +49,14 @@ Global
 		{345C5464-9275-477D-A6B6-739F9AD3B0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{345C5464-9275-477D-A6B6-739F9AD3B0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{345C5464-9275-477D-A6B6-739F9AD3B0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD703ADD-B077-4E31-AB49-B8227D3229BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD703ADD-B077-4E31-AB49-B8227D3229BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD703ADD-B077-4E31-AB49-B8227D3229BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD703ADD-B077-4E31-AB49-B8227D3229BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C76B13C-BAD7-45C0-9075-D145BA406286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C76B13C-BAD7-45C0-9075-D145BA406286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C76B13C-BAD7-45C0-9075-D145BA406286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C76B13C-BAD7-45C0-9075-D145BA406286}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

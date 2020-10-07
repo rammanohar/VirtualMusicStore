@@ -1,14 +1,13 @@
-﻿namespace VirtualMusicStore.Service
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.ServiceModel;
-    using System.ServiceModel.Activation;
-    using System.ServiceModel.Web;
-    using System.Threading.Tasks;
-    using VirtualMusicStore.DataEntities.Interface;
-    using VirtualMusicStore.ServiceInterface;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel;
+using System.Threading.Tasks;
+using VirtualMusicStore.DataEntitiyInterface;
+using VirtualMusicStore.ServiceInterface;
 
+namespace VirtualMusicStore.Service
+{
     [ServiceBehavior]
     public class MusicAlbumService : IMusicAlbumService
     {
@@ -20,16 +19,23 @@
         }
         public bool AddMusicAlbum(DataContract.Album album)
         {
-            var dbAlbum = new DataEntities.Models.Album
+            try
             {
-                AlbumName = album.AlbumName,
-                Label = album.Label,
-                Artist = album.Artist,
-                Stock = album.Stock,
-                LabelType = (DataEntities.Models.LabelType)album.LabelType
-            };
+                var dbAlbum = new DataEntities.Models.Album
+                {
+                    AlbumName = album.AlbumName,
+                    Label = album.Label,
+                    Artist = album.Artist,
+                    Stock = album.Stock,
+                    LabelType = (DataEntities.Models.LabelType)album.LabelType
+                };
 
-            return albumRepository.AddMusicAlbum(dbAlbum);
+                return albumRepository.AddMusicAlbum(dbAlbum);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         public async Task<bool> AddMusicAlbumByAsync(DataContract.Album album)
@@ -47,7 +53,14 @@
 
         public bool DeleteMusicAlbum(int albumid)
         {
-            return albumRepository.DeleteMusicAlbum(albumid);
+            try
+            {
+                return albumRepository.DeleteMusicAlbum(albumid);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         public async Task<bool> DeleteMusicAlbumByAsync(int albumid)

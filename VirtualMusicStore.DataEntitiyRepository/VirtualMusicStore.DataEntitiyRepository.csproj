@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8A6054BC-A244-47D0-A16C-069654A22AB6}</ProjectGuid>
+    <ProjectGuid>{3C76B13C-BAD7-45C0-9075-D145BA406286}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VirtualMusicStore.DataEntities</RootNamespace>
-    <AssemblyName>VirtualMusicStore.DataEntities</AssemblyName>
+    <RootNamespace>VirtualMusicStore.DataEntitiyRepository</RootNamespace>
+    <AssemblyName>VirtualMusicStore.DataEntitiyRepository</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,19 +51,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbInitializer.cs" />
-    <Compile Include="Models\Album.cs" />
-    <Compile Include="Models\LabelType.cs" />
+    <Compile Include="DbFactory.cs" />
+    <Compile Include="MusicAlbumRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoreDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualMusicStore.DataEntities\VirtualMusicStore.DataEntities.csproj">
+      <Project>{8A6054BC-A244-47D0-A16C-069654A22AB6}</Project>
+      <Name>VirtualMusicStore.DataEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VirtualMusicStore.DataEntitiyInterface\VirtualMusicStore.DataEntitiyInterface.csproj">
+      <Project>{BD703ADD-B077-4E31-AB49-B8227D3229BE}</Project>
+      <Name>VirtualMusicStore.DataEntitiyInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-    <Folder Include="Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

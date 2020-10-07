@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <configSections>
     <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
@@ -17,31 +17,63 @@
     <httpRuntime targetFramework="4.7.2" />
   </system.web>
   <system.serviceModel>
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true" />
     <services>
-      <service name="VirtualMusicStore.Service.MusicAlbumService" behaviorConfiguration="MusicServiceBehavior">
-        <!--<endpoint address="http://localhost:2600/MusicAlbum.svc" binding="basicHttpBinding" contract="VirtualMusicStore.ServiceInterface.IMusicAlbumService" />-->
-        <endpoint address="http://localhost:2600/MusicAlbum.svc" binding="customBinding" bindingConfiguration="customBinding0"  contract="VirtualMusicStore.ServiceInterface.IMusicAlbumService" />
+      <service  name="VirtualMusicStore.Service.MusicAlbumService" behaviorConfiguration="MusicServiceBehavior">
+             
+            <endpoint name ="basic" address="http://localhost:2600/"
+                      behaviorConfiguration="webBehavior"
+                      binding="webHttpBinding"
+                      bindingConfiguration="HttpBind"
+                      contract="VirtualMusicStore.ServiceInterface.IMusicAlbumService" />  
+            
+            <!--<endpoint name ="secure" address=""  
+                      binding="webHttpBinding"
+                      bindingConfiguration="HttpsBinding"
+                      contract="VirtualMusicStore.ServiceInterface.IMusicAlbumService" />-->
       </service>
+      
+      <!--<service name="VirtualMusicStore.Service.MusicAlbumService" behaviorConfiguration="MusicServiceBehavior">
+        <endpoint address="http://localhost:2600/MusicAlbum.svc" binding="basicHttpBinding" contract="VirtualMusicStore.ServiceInterface.IMusicAlbumService" />
+      </service>-->
+      
     </services>
     <behaviors>
       <serviceBehaviors>
         <behavior name="MusicServiceBehavior">
-          <!-- To avoid disclosing metadata information, set the values below to false before deployment -->
-          <serviceMetadata httpGetEnabled="true" httpsGetEnabled="true" />
-          <!-- To receive exception details in faults for debugging purposes, set the value below to true.  Set to false before deployment to avoid disclosing exception information -->
+          <serviceMetadata httpGetEnabled="true" httpsGetEnabled="false" />
           <serviceDebug includeExceptionDetailInFaults="true" />
+          <!-- To avoid disclosing metadata information, set the values below to false before deployment -->
+          <!-- To receive exception details in faults for debugging purposes, set the value below to true.  Set to false before deployment to avoid disclosing exception information -->
         </behavior>
       </serviceBehaviors>
+      <endpointBehaviors>
+        <behavior name="webBehavior">
+          <webHttp helpEnabled="true" />
+        </behavior>
+      </endpointBehaviors>
     </behaviors>
+    
+    <protocolMapping>
+      <add scheme="http" binding="basicHttpBinding" bindingConfiguration="HttpBind" />
+      <add scheme="https" binding="basicHttpBinding" bindingConfiguration="HttpsBinding" />
+    </protocolMapping>
+
     <bindings>
-      <customBinding>
-        <binding name="customBinding0">
-          <binaryMessageEncoding />
-          <httpTransport />
+      <webHttpBinding>
+
+        <binding name="HttpBind">
+          <security mode="TransportCredentialOnly">
+          </security>
         </binding>
-      </customBinding>
+
+        <binding name="HttpsBinding">
+          <security mode="Transport">
+          </security>
+        </binding>
+
+      </webHttpBinding>
     </bindings>
-    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="false" />
   </system.serviceModel>
   <system.webServer>
     <modules runAllManagedModulesForAllRequests="true" />

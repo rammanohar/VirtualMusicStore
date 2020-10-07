@@ -125,6 +125,14 @@
       <Project>{8a6054bc-a244-47d0-a16c-069654a22ab6}</Project>
       <Name>VirtualMusicStore.DataEntities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VirtualMusicStore.DataEntitiyInterface\VirtualMusicStore.DataEntitiyInterface.csproj">
+      <Project>{BD703ADD-B077-4E31-AB49-B8227D3229BE}</Project>
+      <Name>VirtualMusicStore.DataEntitiyInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VirtualMusicStore.DataEntitiyRepository\VirtualMusicStore.DataEntitiyRepository.csproj">
+      <Project>{3C76B13C-BAD7-45C0-9075-D145BA406286}</Project>
+      <Name>VirtualMusicStore.DataEntitiyRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VirtualMusicStore.ServiceInterface\VirtualMusicStore.ServiceInterface.csproj">
       <Project>{C30BCD83-490D-4A29-A4EC-453D6F6FD564}</Project>
       <Name>VirtualMusicStore.ServiceInterface</Name>

@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using VirtualMusicStore.DataEntities.Interface;
+    using VirtualMusicStore.DataEntitiyInterface;
 
     [TestFixture]
     public class ServiceTest
@@ -14,6 +14,7 @@
         [SetUp]
         public void Setup()
         {
+
             //Repositories
             var albumsRepository = new Mock<IMusicAlbumRepository>();
 
@@ -37,6 +38,7 @@
                                 Label = "Virgin",
                                 LabelType = DataEntities.Models.LabelType.CD,
                                 Stock = 10
+
 
                             }
                     };

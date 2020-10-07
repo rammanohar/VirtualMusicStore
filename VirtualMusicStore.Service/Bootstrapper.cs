@@ -1,10 +1,10 @@
-﻿namespace VirtualMusicStore.Service
-{
-    using Autofac;
-    using VirtualMusicStore.DataEntities.Interface;
-    using VirtualMusicStore.DataEntities.Service;
-    using VirtualMusicStore.ServiceInterface;
+﻿using Autofac;
+using VirtualMusicStore.DataEntitiyInterface;
+using VirtualMusicStore.DataEntitiyRepository;
+using VirtualMusicStore.ServiceInterface;
 
+namespace VirtualMusicStore.Service
+{
     public static class Bootstrapper
     {
 
